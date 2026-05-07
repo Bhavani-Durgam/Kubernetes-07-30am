@@ -1,0 +1,26 @@
+# Kubernetes Pod YAML configuration file
+# This file defines a Pod resource to run an Nginx web server
+
+# API version used for this resource (v1 is the standard for Pods)
+apiVersion: v1
+
+# Resource type - Pod is the smallest deployable unit in Kubernetes
+kind: Pod     
+
+# Metadata section contains information about the Pod
+metadata:
+  # Name of the Pod - must be unique within a namespace
+  name: nginx-pod
+
+# Spec section defines the desired state/configuration of the Pod
+spec:
+  # Containers array - defines one or more containers to run in this Pod
+  containers:
+  # First (and only) container definition
+  - name: nginx-container
+    # Docker image to use - nginx:latest pulls the latest Nginx image from Docker Hub
+    image: nginx:latest
+    # Port mappings - defines which ports the container listens on
+    ports:
+    # Container will listen on port 80 (HTTP)
+    - containerPort: 80 
